@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    tr,td{
+        text-align: center;
+    }
+</style>
+<body>
+    <input type="text" placeholder="mời bạn nhập công việc" id="job">
+    <button onclick="addJob()">add</button>
+    <!-- 
+        Các bước làm todolist
+        Bước1: Tạo 1 cái mảng để lưu danh sách công việc.
+        Bước2: tạo ô input, button (add) sau đó bắt sự kiện khi nhấn vào nút add
+        lấy giá trị ô input
+        Bước3: Sinh ID cho mỗi công việc rồi push vào mảng chứa danh sách cv
+        Bước4. Mang mảng danh sách công việc đi hiển thị
+     -->
+     <table border="1px"   cellpadding="15px" cellspacing="5px">
+      <thead>
+        <tr>
+            <th> STT</th>
+            <th> Tên CV</th>
+            <th> ID</th>
+            <th colspan="2"> hành động</th>
+        </tr>
+      </thead>
+      <tbody id="body">
+      </tbody>
+     </table>
+     <script>
+        let a=[];
+       
+        function addJob(){
+          let b=document.getElementById("job").value;
+          let c={
+            job:b,
+            id: uuid(),
+          }
+            a.push(c)
+            renderJobs(a)
+            document.getElementById("job").value=""
+        }
+        function uuid() {
+            return Math.floor(Math.random()*9999999999)+ new Date().getMilliseconds();
+        }
+        function renderJobs(listJobs) {
+            let text="";
+            for (let i = 0; i < listJobs.length; i++) {
+                text+=
+                `
+                    <tr> 
+                        <td> ${i+1} </td>
+                        <td> ${listJobs[i].job}</td>
+                        <td> ${listJobs[i].id} </td>
+                        <td > Sửa</td>
+                        <td > Xoá </td>
+                    </tr>
+                `
+            }
+            document.getElementById("body").innerHTML=text;
+        }
+     </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Create New Item</h2>
+    <span>Item</span>
+    <input type="text" id="input" oninput="show1()">
+    <button onclick="show2()">Add</button>
+    <ul id="ul"></ul>
+    <script>
+        let a= document.getElementById("input")
+        let ul=document.getElementById("ul")
+        let text=a.value
+        a.style.backgroundColor="yellow"
+        function show1 (){
+            if(a.value == ""){
+                a.style.backgroundColor="yellow"
+            }else{
+                a.style.backgroundColor="white"
+            }
+        }
+        function show2(){
+            text=a.value
+            let li=document.createElement("li")
+            ul.appendChild(li);
+            li.innerHTML=text
+            a.value=""
+            a.style.backgroundColor="yellow"
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <span id="shaet"></span>
+    <span id ="hrer"></span>
+     <div id ="user"></div>
+     <div id="buttom"></div>
+    <script>
+         let a=document.getElementById("shaet")
+         let c=document.getElementById("user")
+        let b=document.getElementById("hrer")
+        let e=document.getElementById("buttom")
+        
+        a.innerHTML=`<span>nhap noi dung tim kiem</span>
+                     <input type="text"> `
+        
+        e.innerHTML=` <button>Tim Kiem</button>`
+        e.style.display="none"
+        c.innerHTML=` <select>
+                          <option value="">quan ao</option>
+                          <option value="">sach vo</option>
+                      </select>`      
+        e.style.marginTop="20px"
+         b.innerHTML=` <a  href="#" onclick="click1()">tim kiem nang cao</a>` 
+         b.addEventListener("click", ()=>{
+            e.style.display="block"
+        })
+    </script>
+</body>
+</html>
